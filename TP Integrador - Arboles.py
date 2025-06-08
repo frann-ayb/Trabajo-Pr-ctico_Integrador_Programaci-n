@@ -1,28 +1,33 @@
-class nodo:
-    def __init__(self, valor): #le pasamos un nodo con un valor
-        nodo.valor = valor #ese valor se asigna a la relacion nodo.valor
-        nodo.hijo_derecho = None #se define la existecia de hijos pero aun no su valor
-        nodo.hijo_izquierdo = None 
-
+class Producto:
+    def __init__(self,codigo, nombre, cantidad, precio):
+        self.nombre = nombre
+        self.cantidad = cantidad
+        self.precio = precio
+        self.codigo = codigo
+        self.izquierda = None
+        self.derecha = None
+        
 class ArbolBinario:
     def __init__(self):
-        self.raiz = None
+        self.referencia = None
 
-    def asignar_raiz(self, nodo, valor):
-        if self.raiz is None:
-            self.raiz = nodo(valor) #se crea un nuevo nodo para la raiz
-        else:
-            self.insertar_nodos_izq_der(self.raiz, valor) #se envia el nodo y el valor a la funcion recursiva
+    def insertar(self, codigo, nombre, cantidad, precio):
+        self.referencia = self.insertar_recursivo(self.referencia, codigo, nombre, cantidad, precio)
+
+    def insertar_recursivo(self, nodo, codigo, nombre, cantidad, precio):
+        if nodo is None:
+            nodo = Producto(codigo, nombre, cantidad, precio)
+        if codigo < nodo.codigo:
+            nodo.izquierda = self.insertar_recursivo(nodo.izquierda, codigo, nombre, cantidad, precio)
+        elif codigo > nodo.codigo:
+            nodo.derecha = self.insertar_recursivo(nodo.derecha, codigo, nombre, cantidad, precio)
+        return nodo
+
+
     
-    def insertar_nodos_izq_der(self, nodo_padre, valor):
-        if valor < nodo_padre.valor: #valor hijo comparado al valor actual (valor del nodo padre)
-            if nodo_padre.hijo_izquierdo is None:
-                nodo_padre.hijo_izquierdo = nodo(valor)
-            else:
-                self.insertar_nodos_izq_der(nodo_padre.hijo_izquierdo, valor)
-        else:
-            if nodo_padre.hijo_derecho is None:
-                nodo_padre.hijo_derecho = nodo(valor)
-            else:
-                self.insertar_nodos_izq_der(nodo_padre.hijo_derecho, valor)
+arbol = ArbolBinario()
+arbol.insertar(10, "manzana", 8, "$1200")
+arbol.insertar(11, "pera", 22, "$1000")
+arbol.insertar(15, "anana", 18, "$2200")
+
 
