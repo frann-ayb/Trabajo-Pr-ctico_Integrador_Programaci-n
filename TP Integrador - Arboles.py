@@ -22,7 +22,19 @@ class ArbolBinario:
         elif codigo > nodo.codigo:
             nodo.derecha = self.insertar_recursivo(nodo.derecha, codigo, nombre, cantidad, precio)
         return nodo
+        
+    def buscar(self, codigo):
+        return self.buscar_recursivo(self.referencia, codigo)
 
+    def buscar_recursivo(self, nodo, codigo):
+        if nodo is None:
+            return None
+        if codigo == nodo.codigo:
+            return nodo
+        elif codigo < nodo.codigo:
+            return self.buscar_recursivo(nodo.izquierda, codigo)
+        else:
+            return self.buscar_recursivo(nodo.derecha, codigo)
 
     
 arbol = ArbolBinario()
