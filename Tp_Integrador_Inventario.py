@@ -36,14 +36,13 @@ class ArbolBinario:     #permite crear un arbol binario para almacenar productos
         else:                           #recorre el arbol hacia el hijo der del nodo actual
             return self.buscar_recursivo(nodo.derecha, codigo)
 
-    def modificar(self, prod, nombre, cantidad, precio): ## "codigo" en vez de "prod"  ##permite modificar nodos existentes
-        ##prod = self.buscar(codigo)
-        ##if prod:
+    def modificar(self, prod, nombre, cantidad, precio):##permite modificar nodos existentes
+        
             prod.nombre = nombre        #asigna el nuevo nombre dado
             prod.cantidad = cantidad    #asigna la nueva cantidad dada
             prod.precio = precio        #asigna el nuevo precio dado
             return True
-        ##return False
+        
 
 
 def mostrar_menu():     #funcion que permite imprimir el menu de opciones
