@@ -14,4 +14,4 @@
 - Además, se apuntó a validar el comportamiento del ABB en un contexto práctico, mediante pruebas que simularan escenarios reales de uso.
 
 # Link al video de presentación
-
+https://youtu.be/bwbhsVsX5Es
