@@ -1,4 +1,4 @@
-# Trabajo-Pr-ctico_Integrador_Programaci-n
+# Trabajo-Práctico_Integrador_Programación
 "Árboles con Orientación a Objetos en Python"
 
 # Integrantes - Comisión 15
